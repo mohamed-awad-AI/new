@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسئلة الشائعة - نظام التسجيل الطلابي</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#64748b'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f8fafc;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+        }
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-['Pacifico'] text-primary">logo</h1>
+                <nav class="hidden md:flex mr-10">
+                    <a href="#" class="mx-3 text-gray-700 hover:text-primary transition-colors">الرئيسية</a>
+                    <a href="#" class="mx-3 text-gray-700 hover:text-primary transition-colors">التسجيل</a>
+                    <a href="#" class="mx-3 text-gray-700 hover:text-primary transition-colors">الجدول الدراسي</a>
+                    <a href="#" class="mx-3 font-medium text-primary">الأسئلة الشائعة</a>
+                    <a href="#" class="mx-3 text-gray-700 hover:text-primary transition-colors">تواصل معنا</a>
+                </nav>
+            </div>
+            <div class="flex items-center">
+                <button class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors">تسجيل الدخول</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">الأسئلة الشائعة</h1>
+                <p class="text-gray-600 max-w-2xl mx-auto">إليك مجموعة من الأسئلة الشائعة التي قد تساعدك في عملية التسجيل والاستفسارات المتعلقة بالجدول الدراسي</p>
+            </div>
+
+            <div class="bg-white shadow-md rounded-lg p-6 mb-8">
+                <div class="relative">
+                    <input type="text" placeholder="ابحث عن سؤال..." class="w-full px-4 py-3 pr-10 border-none bg-gray-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 text-gray-700">
+                    <div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-6 h-6 flex items-center justify-center text-gray-400">
+                        <i class="ri-search-line"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <div class="flex mb-6 border-b border-gray-200">
+                    <button class="py-3 px-5 text-primary border-b-2 border-primary font-medium">جميع الأسئلة</button>
+                    <button class="py-3 px-5 text-gray-600 hover:text-primary transition-colors">التسجيل</button>
+                    <button class="py-3 px-5 text-gray-600 hover:text-primary transition-colors">الجداول الدراسية</button>
+                    <button class="py-3 px-5 text-gray-600 hover:text-primary transition-colors">المشاكل التقنية</button>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="accordion-item bg-white shadow-sm rounded-lg overflow-hidden">
+                    <button class="accordion-header w-full flex justify-between items-center p-5 text-right bg-white hover:bg-gray-50 transition-colors">
+                        <span class="font-medium text-gray-800">متى يبدأ وينتهي التسجيل؟</span>
+                        <div class="accordion-icon w-6 h-6 flex items-center justify-center text-primary">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content bg-gray-50">
+                        <div class="p-5 text-gray-600">
+                            <p>يبدأ التسجيل للفصل الدراسي الأول في 15 أغسطس 2025 وينتهي في 30 أغسطس 2025. أما بالنسبة للفصل الدراسي الثاني، فيبدأ التسجيل في 10 يناير 2026 وينتهي في 25 يناير 2026. يرجى الالتزام بالمواعيد المحددة لضمان تسجيل المواد المطلوبة.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item bg-white shadow-sm rounded-lg overflow-hidden">
+                    <button class="accordion-header w-full flex justify-between items-center p-5 text-right bg-white hover:bg-gray-50 transition-colors">
+                        <span class="font-medium text-gray-800">كم مادة أقدر أسجل؟</span>
+                        <div class="accordion-icon w-6 h-6 flex items-center justify-center text-primary">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content bg-gray-50">
+                        <div class="p-5 text-gray-600">
+                            <p>يمكنك تسجيل ما بين 12 إلى 18 ساعة معتمدة في الفصل الدراسي العادي، أي ما يعادل 4-6 مواد حسب عدد الساعات لكل مادة. الطلاب المتفوقون (معدل تراكمي 3.5 فأعلى) يمكنهم تسجيل حتى 21 ساعة معتمدة بعد موافقة المرشد الأكاديمي.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item bg-white shadow-sm rounded-lg overflow-hidden">
+                    <button class="accordion-header w-full flex justify-between items-center p-5 text-right bg-white hover:bg-gray-50 transition-colors">
+                        <span class="font-medium text-gray-800">كيف أسجل أو أحذف مادة؟</span>
+                        <div class="accordion-icon w-6 h-6 flex items-center justify-center text-primary">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content bg-gray-50">
+                        <div class="p-5 text-gray-600">
+                            <p>لتسجيل أو حذف مادة، قم بتسجيل الدخول إلى بوابة الطالب الإلكترونية، ثم اختر "التسجيل الإلكتروني" من القائمة الرئيسية. لإضافة مادة، انقر على زر "إضافة مادة" واختر المادة المطلوبة من القائمة. لحذف مادة، حدد المادة من جدولك الدراسي واضغط على زر "حذف المادة".</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item bg-white shadow-sm rounded-lg overflow-hidden">
+                    <button class="accordion-header w-full flex justify-between items-center p-5 text-right bg-white hover:bg-gray-50 transition-colors">
+                        <span class="font-medium text-gray-800">هل يمكن تعديل المواد بعد التسجيل؟</span>
+                        <div class="accordion-icon w-6 h-6 flex items-center justify-center text-primary">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content bg-gray-50">
+                        <div class="p-5 text-gray-600">
+                            <p>نعم، يمكنك تعديل المواد خلال فترة الحذف والإضافة التي تستمر لمدة أسبوعين بعد بدء الدراسة. بعد انتهاء هذه الفترة، لا يمكن إضافة مواد جديدة، ولكن يمكن الانسحاب من المواد حتى الأسبوع العاشر من الفصل الدراسي مع وضع علامة "W" في السجل الأكاديمي.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item bg-white shadow-sm rounded-lg overflow-hidden">
+                    <button class="accordion-header w-full flex justify-between items-center p-5 text-right bg-white hover:bg-gray-50 transition-colors">
+                        <span class="font-medium text-gray-800">ماذا أفعل لو واجهت مشكلة؟</span>
+                        <div class="accordion-icon w-6 h-6 flex items-center justify-center text-primary">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content bg-gray-50">
+                        <div class="p-5 text-gray-600">
+                            <p>في حال واجهت أي مشكلة في التسجيل، يمكنك التواصل مع مكتب التسجيل عبر البريد الإلكتروني registration@university.edu أو الاتصال على الرقم 0123456789 خلال ساعات العمل الرسمية من الأحد إلى الخميس (8:00 صباحاً - 3:00 مساءً). يمكنك أيضاً زيارة مكتب التسجيل شخصياً في المبنى الإداري، الطابق الثاني.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item bg-white shadow-sm rounded-lg overflow-hidden">
+                    <button class="accordion-header w-full flex justify-between items-center p-5 text-right bg-white hover:bg-gray-50 transition-colors">
+                        <span class="font-medium text-gray-800">هل التسجيل مجاني؟</span>
+                        <div class="accordion-icon w-6 h-6 flex items-center justify-center text-primary">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content bg-gray-50">
+                        <div class="p-5 text-gray-600">
+                            <p>عملية التسجيل نفسها مجانية، لكن يجب دفع الرسوم الدراسية للمواد المسجلة خلال أسبوعين من تاريخ التسجيل. إذا لم يتم سداد الرسوم خلال المدة المحددة، سيتم إلغاء تسجيل المواد تلقائياً. يمكن الاطلاع على تفاصيل الرسوم الدراسية من خلال بوابة الطالب الإلكترونية.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item bg-white shadow-sm rounded-lg overflow-hidden">
+                    <button class="accordion-header w-full flex justify-between items-center p-5 text-right bg-white hover:bg-gray-50 transition-colors">
+                        <span class="font-medium text-gray-800">كيف أتحقق من جدول المحاضرات؟</span>
+                        <div class="accordion-icon w-6 h-6 flex items-center justify-center text-primary">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content bg-gray-50">
+                        <div class="p-5 text-gray-600">
+                            <p>يمكنك التحقق من جدول المحاضرات من خلال بوابة الطالب الإلكترونية. بعد تسجيل الدخول، انتقل إلى قسم "الجدول الدراسي" حيث ستجد جدولك الأسبوعي مع تفاصيل المواد وأوقات المحاضرات وأرقام القاعات. يتم تحديث الجدول تلقائياً عند إضافة أو حذف أي مادة.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item bg-white shadow-sm rounded-lg overflow-hidden">
+                    <button class="accordion-header w-full flex justify-between items-center p-5 text-right bg-white hover:bg-gray-50 transition-colors">
+                        <span class="font-medium text-gray-800">ماذا لو تعارضت مواعيد المواد؟</span>
+                        <div class="accordion-icon w-6 h-6 flex items-center justify-center text-primary">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content bg-gray-50">
+                        <div class="p-5 text-gray-600">
+                            <p>نظام التسجيل الإلكتروني مصمم لمنع تسجيل مواد متعارضة في المواعيد. إذا حاولت تسجيل مادة تتعارض مع مادة أخرى مسجلة مسبقاً، سيظهر لك تنبيه بوجود تعارض. في هذه الحالة، يمكنك البحث عن شعبة أخرى للمادة في وقت مختلف، أو تأجيل إحدى المادتين للفصل القادم.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item bg-white shadow-sm rounded-lg overflow-hidden">
+                    <button class="accordion-header w-full flex justify-between items-center p-5 text-right bg-white hover:bg-gray-50 transition-colors">
+                        <span class="font-medium text-gray-800">كيف أعرف رقم القاعة؟</span>
+                        <div class="accordion-icon w-6 h-6 flex items-center justify-center text-primary">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content bg-gray-50">
+                        <div class="p-5 text-gray-600">
+                            <p>تظهر أرقام القاعات في جدولك الدراسي على بوابة الطالب الإلكترونية. يتم تحديد القاعات بصيغة "رقم المبنى - رقم الطابق - رقم القاعة". على سبيل المثال، القاعة "3-2-105" تعني المبنى رقم 3، الطابق الثاني، القاعة رقم 105. توجد خرائط للحرم الجامعي عند مداخل المباني لمساعدتك في العثور على القاعات.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item bg-white shadow-sm rounded-lg overflow-hidden">
+                    <button class="accordion-header w-full flex justify-between items-center p-5 text-right bg-white hover:bg-gray-50 transition-colors">
+                        <span class="font-medium text-gray-800">هل يمكن طباعة الجدول؟</span>
+                        <div class="accordion-icon w-6 h-6 flex items-center justify-center text-primary">
+                            <i class="ri-arrow-down-s-line"></i>
+                        </div>
+                    </button>
+                    <div class="accordion-content bg-gray-50">
+                        <div class="p-5 text-gray-600">
+                            <p>نعم، يمكنك طباعة جدولك الدراسي من بوابة الطالب الإلكترونية. بعد الدخول إلى صفحة "الجدول الدراسي"، ستجد زر "طباعة الجدول" أو "تصدير PDF" في أعلى الصفحة. يمكنك أيضاً حفظ نسخة إلكترونية من الجدول على هاتفك الذكي أو جهازك اللوحي لسهولة الوصول إليه في أي وقت.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-primary/5 rounded-lg p-6 flex flex-col md:flex-row items-center justify-between">
+                <div class="text-center md:text-right mb-4 md:mb-0">
+                    <h3 class="text-lg font-bold text-gray-800 mb-2">لم تجد إجابة لسؤالك؟</h3>
+                    <p class="text-gray-600">يمكنك التواصل مباشرة مع فريق الدعم للحصول على المساعدة</p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <button class="bg-primary text-white px-5 py-2.5 !rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors flex items-center justify-center">
+                        <i class="ri-message-3-line ml-2"></i>
+                        تواصل معنا
+                    </button>
+                    <button class="bg-white text-primary border border-primary px-5 py-2.5 !rounded-button whitespace-nowrap hover:bg-gray-50 transition-colors flex items-center justify-center">
+                        <i class="ri-question-line ml-2"></i>
+                        طرح سؤال جديد
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-['Pacifico'] text-white mb-4">logo</h3>
+                    <p class="text-gray-300 mb-4">نظام التسجيل الإلكتروني لطلاب الجامعة، يوفر خدمات التسجيل والاستعلام عن الجداول الدراسية بكل سهولة ويسر.</p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:bg-primary transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:bg-primary transition-colors">
+                            <i class="ri-twitter-x-fill"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:bg-primary transition-colors">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-700 hover:bg-primary transition-colors">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">روابط سريعة</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">الصفحة الرئيسية</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">التسجيل الإلكتروني</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">الجدول الدراسي</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">التقويم الأكاديمي</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">معلومات الاتصال</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 ml-2 flex items-center justify-center text-primary">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="text-gray-300">المدينة الجامعية، طريق الملك عبدالله، الرياض</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 ml-2 flex items-center justify-center text-primary">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <span class="text-gray-300">0123456789</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 ml-2 flex items-center justify-center text-primary">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <span class="text-gray-300">info@university.edu</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 ml-2 flex items-center justify-center text-primary">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <span class="text-gray-300">الأحد - الخميس: 8:00 ص - 3:00 م</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">النشرة الإخبارية</h4>
+                    <p class="text-gray-300 mb-4">اشترك في نشرتنا الإخبارية للحصول على آخر التحديثات والإعلانات الهامة</p>
+                    <div class="flex">
+                        <input type="email" placeholder="البريد الإلكتروني" class="px-4 py-2 !rounded-r-none !rounded-button text-gray-800 border-none focus:outline-none focus:ring-2 focus:ring-primary/20 w-full">
+                        <button class="bg-primary text-white px-4 py-2 !rounded-l-none !rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors">اشتراك</button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center">
+                <p class="text-gray-400">جميع الحقوق محفوظة © 2025 نظام التسجيل الإلكتروني للطلاب</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const item = this.parentElement;
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all items
+                    document.querySelectorAll('.accordion-item').forEach(accordionItem => {
+                        accordionItem.classList.remove('active');
+                    });
+                    
+                    // If the clicked item wasn't active, open it
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            // Open the first accordion item by default
+            if (accordionHeaders.length > 0) {
+                accordionHeaders[0].parentElement.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>

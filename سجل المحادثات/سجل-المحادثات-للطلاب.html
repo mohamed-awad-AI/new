@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سجل المحادثات</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#4F46E5',secondary:'#818CF8'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f9fafb;
+        }
+        .conversation-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+        }
+        .conversation-card {
+            transition: all 0.2s ease;
+        }
+        .bookmark-active {
+            color: #4F46E5;
+        }
+        .filter-active {
+            background-color: #4F46E5;
+            color: white;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="flex items-center justify-between px-4 py-4">
+            <button class="w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 !rounded-button">
+                <i class="ri-search-line ri-lg"></i>
+            </button>
+            <h1 class="text-xl font-bold text-gray-800">سجل المحادثات</h1>
+            <button class="w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 !rounded-button">
+                <i class="ri-arrow-right-s-line ri-lg"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Filter Section -->
+    <div class="bg-white pt-2 pb-4 px-4 border-b">
+        <div class="flex items-center gap-3 overflow-x-auto pb-2 mb-3 no-scrollbar">
+            <button class="filter-active whitespace-nowrap px-4 py-2 text-sm font-medium !rounded-button">
+                جميع المحادثات
+            </button>
+            <button class="whitespace-nowrap px-4 py-2 text-sm font-medium text-gray-600 bg-gray-100 !rounded-button">
+                استفسارات المواد
+            </button>
+            <button class="whitespace-nowrap px-4 py-2 text-sm font-medium text-gray-600 bg-gray-100 !rounded-button">
+                خطوات التسجيل
+            </button>
+            <button class="whitespace-nowrap px-4 py-2 text-sm font-medium text-gray-600 bg-gray-100 !rounded-button">
+                توصيات النظام
+            </button>
+        </div>
+        
+        <div class="flex justify-between items-center">
+            <div class="relative">
+                <select class="appearance-none bg-gray-100 text-gray-700 py-2 pr-4 pl-10 !rounded-button text-sm font-medium border-none focus:outline-none focus:ring-2 focus:ring-primary">
+                    <option>الأحدث أولاً</option>
+                    <option>الأقدم أولاً</option>
+                </select>
+                <div class="absolute left-3 top-1/2 transform -translate-y-1/2 pointer-events-none w-5 h-5 flex items-center justify-center">
+                    <i class="ri-arrow-down-s-line"></i>
+                </div>
+            </div>
+            
+            <button class="flex items-center gap-2 bg-gray-100 text-gray-700 px-4 py-2 text-sm font-medium !rounded-button">
+                <i class="ri-calendar-line"></i>
+                <span>تصفية حسب التاريخ</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Conversations List -->
+    <main class="px-4 py-4 pb-20">
+        <div class="space-y-4">
+            <!-- Conversation 1 -->
+            <div class="conversation-card bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <div class="flex justify-between items-start mb-2">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                            <i class="ri-question-line text-primary"></i>
+                        </div>
+                        <h3 class="font-medium text-gray-900">استفسار عن مواعيد التسجيل</h3>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <span class="text-xs text-gray-500">30 يونيو 2025</span>
+                        <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-primary">
+                            <i class="ri-bookmark-line"></i>
+                        </button>
+                        <div class="relative">
+                            <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-700">
+                                <i class="ri-more-2-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm line-clamp-2 mb-3">سألت عن مواعيد التسجيل للفصل الدراسي القادم وكيفية حجز المواد المطلوبة قبل نفاذ المقاعد المتاحة...</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-full">خطوات التسجيل</span>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs text-gray-500 flex items-center gap-1">
+                            <i class="ri-message-3-line"></i>
+                            5 رسائل
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conversation 2 -->
+            <div class="conversation-card bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <div class="flex justify-between items-start mb-2">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+                            <i class="ri-book-open-line text-green-600"></i>
+                        </div>
+                        <h3 class="font-medium text-gray-900">توصيات لمقررات اختيارية</h3>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <span class="text-xs text-gray-500">29 يونيو 2025</span>
+                        <button class="w-8 h-8 flex items-center justify-center text-primary bookmark-active">
+                            <i class="ri-bookmark-fill"></i>
+                        </button>
+                        <div class="relative">
+                            <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-700">
+                                <i class="ri-more-2-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm line-clamp-2 mb-3">طلبت توصيات لمقررات اختيارية تناسب تخصصي في علوم الحاسب، وحصلت على قائمة بالمقررات المتاحة مع تقييمات الطلاب السابقين...</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full">توصيات النظام</span>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs text-gray-500 flex items-center gap-1">
+                            <i class="ri-message-3-line"></i>
+                            8 رسائل
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conversation 3 -->
+            <div class="conversation-card bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <div class="flex justify-between items-start mb-2">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
+                            <i class="ri-file-list-3-line text-purple-600"></i>
+                        </div>
+                        <h3 class="font-medium text-gray-900">متطلبات مادة الرياضيات المتقدمة</h3>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <span class="text-xs text-gray-500">28 يونيو 2025</span>
+                        <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-primary">
+                            <i class="ri-bookmark-line"></i>
+                        </button>
+                        <div class="relative">
+                            <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-700">
+                                <i class="ri-more-2-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm line-clamp-2 mb-3">استفسرت عن المتطلبات السابقة لمادة الرياضيات المتقدمة ومحتوى المقرر والمهارات اللازمة للنجاح فيها...</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-xs bg-purple-50 text-purple-700 px-2 py-1 rounded-full">استفسارات المواد</span>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs text-gray-500 flex items-center gap-1">
+                            <i class="ri-message-3-line"></i>
+                            4 رسائل
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conversation 4 -->
+            <div class="conversation-card bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <div class="flex justify-between items-start mb-2">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center">
+                            <i class="ri-calendar-check-line text-orange-600"></i>
+                        </div>
+                        <h3 class="font-medium text-gray-900">جدول الامتحانات النهائية</h3>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <span class="text-xs text-gray-500">26 يونيو 2025</span>
+                        <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-primary">
+                            <i class="ri-bookmark-line"></i>
+                        </button>
+                        <div class="relative">
+                            <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-700">
+                                <i class="ri-more-2-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm line-clamp-2 mb-3">طلبت معلومات عن مواعيد الامتحانات النهائية للفصل الحالي وإمكانية تغيير موعد أحد الامتحانات بسبب تعارض...</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-xs bg-orange-50 text-orange-700 px-2 py-1 rounded-full">استفسارات أكاديمية</span>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs text-gray-500 flex items-center gap-1">
+                            <i class="ri-message-3-line"></i>
+                            6 رسائل
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conversation 5 -->
+            <div class="conversation-card bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                <div class="flex justify-between items-start mb-2">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                            <i class="ri-question-line text-primary"></i>
+                        </div>
+                        <h3 class="font-medium text-gray-900">معلومات عن المنح الدراسية</h3>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <span class="text-xs text-gray-500">25 يونيو 2025</span>
+                        <button class="w-8 h-8 flex items-center justify-center text-primary bookmark-active">
+                            <i class="ri-bookmark-fill"></i>
+                        </button>
+                        <div class="relative">
+                            <button class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-700">
+                                <i class="ri-more-2-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm line-clamp-2 mb-3">استفسرت عن المنح الدراسية المتاحة للطلاب المتفوقين وشروط التقديم والمستندات المطلوبة والمواعيد النهائية...</p>
+                <div class="flex justify-between items-center">
+                    <span class="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded-full">خطوات التسجيل</span>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs text-gray-500 flex items-center gap-1">
+                            <i class="ri-message-3-line"></i>
+                            7 رسائل
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-2 px-4">
+        <div class="flex justify-around items-center">
+            <a href="#" class="flex flex-col items-center text-gray-500 hover:text-primary">
+                <div class="w-6 h-6 flex items-center justify-center">
+                    <i class="ri-home-line"></i>
+                </div>
+                <span class="text-xs mt-1">الرئيسية</span>
+            </a>
+            <a href="#" class="flex flex-col items-center text-primary">
+                <div class="w-6 h-6 flex items-center justify-center">
+                    <i class="ri-message-3-fill"></i>
+                </div>
+                <span class="text-xs mt-1">المحادثات</span>
+            </a>
+            <a href="#" class="flex flex-col items-center text-gray-500 hover:text-primary">
+                <div class="w-6 h-6 flex items-center justify-center">
+                    <i class="ri-settings-line"></i>
+                </div>
+                <span class="text-xs mt-1">الإعدادات</span>
+            </a>
+            <a href="#" class="flex flex-col items-center text-gray-500 hover:text-primary">
+                <div class="w-6 h-6 flex items-center justify-center">
+                    <i class="ri-user-line"></i>
+                </div>
+                <span class="text-xs mt-1">الملف الشخصي</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Scripts -->
+    <script id="conversation-interaction">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Bookmark toggle functionality
+            const bookmarkButtons = document.querySelectorAll('[class*="bookmark"]');
+            bookmarkButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const icon = button.querySelector('i');
+                    if (icon.classList.contains('ri-bookmark-line')) {
+                        icon.classList.remove('ri-bookmark-line');
+                        icon.classList.add('ri-bookmark-fill');
+                        button.classList.add('bookmark-active');
+                    } else {
+                        icon.classList.remove('ri-bookmark-fill');
+                        icon.classList.add('ri-bookmark-line');
+                        button.classList.remove('bookmark-active');
+                    }
+                });
+            });
+
+            // Filter buttons toggle
+            const filterButtons = document.querySelectorAll('.filter-active, [class*="bg-gray-100"]');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('filter-active');
+                        btn.classList.add('bg-gray-100');
+                        btn.classList.add('text-gray-600');
+                    });
+                    button.classList.add('filter-active');
+                    button.classList.remove('bg-gray-100');
+                    button.classList.remove('text-gray-600');
+                });
+            });
+
+            // Make conversation cards clickable
+            const conversationCards = document.querySelectorAll('.conversation-card');
+            conversationCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Prevent clicking if the click was on a button
+                    if (!e.target.closest('button')) {
+                        // Navigate to conversation detail page
+                        console.log('Navigate to conversation detail');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

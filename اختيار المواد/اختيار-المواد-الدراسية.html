@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختيار المواد الدراسية</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#1e40af'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f9fafb;
+        }
+        input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 2px solid #d1d5db;
+            border-radius: 4px;
+            background-color: white;
+            cursor: pointer;
+            position: relative;
+        }
+        input[type="checkbox"]:checked {
+            background-color: #3b82f6;
+            border-color: #3b82f6;
+        }
+        input[type="checkbox"]:checked::after {
+            content: "";
+            position: absolute;
+            width: 0.5rem;
+            height: 0.25rem;
+            border-left: 2px solid white;
+            border-bottom: 2px solid white;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -70%) rotate(-45deg);
+        }
+        input[type="search"]::-webkit-search-cancel-button {
+            display: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <header class="mb-8">
+            <div class="flex items-center justify-between mb-6">
+                <h1 class="text-3xl font-bold text-gray-900">اختيار المواد الدراسية</h1>
+                <div class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full">
+                    <i class="ri-user-line ri-lg"></i>
+                </div>
+            </div>
+            
+            <div class="relative mb-8">
+                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                        <i class="ri-search-line"></i>
+                    </div>
+                </div>
+                <input type="search" class="w-full p-4 pr-10 text-sm bg-white border-none rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="ابحث عن مادة...">
+            </div>
+            
+            <div class="flex flex-wrap gap-3 mb-6">
+                <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                    <span class="text-sm font-medium text-gray-700">التخصص:</span>
+                    <select class="bg-transparent text-sm text-gray-700 focus:outline-none pr-8">
+                        <option>جميع التخصصات</option>
+                        <option>علوم الحاسوب</option>
+                        <option>هندسة البرمجيات</option>
+                        <option>نظم المعلومات</option>
+                    </select>
+                </div>
+                
+                <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                    <span class="text-sm font-medium text-gray-700">المستوى:</span>
+                    <select class="bg-transparent text-sm text-gray-700 focus:outline-none pr-8">
+                        <option>جميع المستويات</option>
+                        <option>المستوى الأول</option>
+                        <option>المستوى الثاني</option>
+                        <option>المستوى الثالث</option>
+                        <option>المستوى الرابع</option>
+                    </select>
+                </div>
+                
+                <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                    <span class="text-sm font-medium text-gray-700">اليوم:</span>
+                    <select class="bg-transparent text-sm text-gray-700 focus:outline-none pr-8">
+                        <option>جميع الأيام</option>
+                        <option>الأحد</option>
+                        <option>الاثنين</option>
+                        <option>الثلاثاء</option>
+                        <option>الأربعاء</option>
+                        <option>الخميس</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-semibold text-gray-800">المواد المتاحة للتسجيل</h2>
+                <div class="flex items-center gap-1 text-sm text-gray-600">
+                    <span>19 مايو 2025</span>
+                    <span>|</span>
+                    <span>الفصل الدراسي الأول</span>
+                </div>
+            </div>
+        </header>
+        
+        <main class="mb-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- مادة 1 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900">برمجة 1</h3>
+                                <p class="text-gray-500 text-sm">CS101</p>
+                            </div>
+                            <div class="flex items-center justify-center w-8 h-8 bg-blue-50 rounded-full">
+                                <i class="ri-code-line text-primary"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                    <i class="ri-time-line"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">3 ساعات معتمدة</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                    <i class="ri-calendar-line"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">الأحد 10:00 صباحاً</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                    <i class="ri-user-line"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">د. محمد الأحمد</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">متاح</span>
+                                <span class="text-sm text-gray-500">35/40 مقعد</span>
+                            </div>
+                            <button class="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-button whitespace-nowrap">تسجيل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- مادة 2 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900">قواعد بيانات</h3>
+                                <p class="text-gray-500 text-sm">CS220</p>
+                            </div>
+                            <div class="flex items-center justify-center w-8 h-8 bg-blue-50 rounded-full">
+                                <i class="ri-database-2-line text-primary"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                    <i class="ri-time-line"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">3 ساعات معتمدة</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                    <i class="ri-calendar-line"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">الأربعاء 11:00 صباحاً</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                    <i class="ri-user-line"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">د. سارة العلي</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">متاح</span>
+                                <span class="text-sm text-gray-500">28/30 مقعد</span>
+                            </div>
+                            <button class="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-button whitespace-nowrap">تسجيل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- مادة 3 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900">هياكل البيانات</h3>
+                                <p class="text-gray-500 text-sm">CS210</p>
+                            </div>
+                            <div class="flex items-center justify-center w-8 h-8 bg-blue-50 rounded-full">
+                                <i class="ri-stack-line text-primary"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                    <i class="ri-time-line"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">3 ساعات معتمدة</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                    <i class="ri-calendar-line"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">الاثنين 9:00 صباحاً</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                    <i class="ri-user-line"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">د. خالد المنصور</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">متاح</span>
+                                <span class="text-sm text-gray-500">22/35 مقعد</span>
+                            </div>
+                            <button class="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-button whitespace-nowrap">تسجيل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- مادة 4 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900">شبكات الحاسوب</h3>
+                                <p class="text-gray-500 text-sm">CS330</p>
+                            </div>
+                            <div class="flex items-center justify-center w-8 h-8 bg-blue-50 rounded-full">
+                                <i class="ri-global-line text-primary"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                    <i class="ri-time-line"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">3 ساعات معتمدة</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                    <i class="ri-calendar-line"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">الثلاثاء 1:00 ظهراً</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                    <i class="ri-user-line"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">د. أحمد الناصر</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">محدود</span>
+                                <span class="text-sm text-gray-500">5/25 مقعد</span>
+                            </div>
+                            <button class="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-button whitespace-nowrap">تسجيل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- مادة 5 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900">نظم التشغيل</h3>
+                                <p class="text-gray-500 text-sm">CS340</p>
+                            </div>
+                            <div class="flex items-center justify-center w-8 h-8 bg-blue-50 rounded-full">
+                                <i class="ri-terminal-box-line text-primary"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                    <i class="ri-time-line"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">3 ساعات معتمدة</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                    <i class="ri-calendar-line"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">الخميس 10:00 صباحاً</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                    <i class="ri-user-line"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">د. فاطمة الزهراني</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">مكتمل</span>
+                                <span class="text-sm text-gray-500">0/30 مقعد</span>
+                            </div>
+                            <button class="px-4 py-2 text-sm font-medium text-gray-500 bg-gray-100 cursor-not-allowed rounded-button whitespace-nowrap">مكتمل</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- مادة 6 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900">برمجة الويب</h3>
+                                <p class="text-gray-500 text-sm">CS350</p>
+                            </div>
+                            <div class="flex items-center justify-center w-8 h-8 bg-blue-50 rounded-full">
+                                <i class="ri-html5-line text-primary"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                    <i class="ri-time-line"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">3 ساعات معتمدة</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                    <i class="ri-calendar-line"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">الأحد 2:00 ظهراً</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-2">
+                                <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                    <i class="ri-user-line"></i>
+                                </div>
+                                <span class="text-sm text-gray-600">د. عبدالله القحطاني</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">متاح</span>
+                                <span class="text-sm text-gray-500">18/25 مقعد</span>
+                            </div>
+                            <button class="px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-button whitespace-nowrap">تسجيل</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <div class="fixed bottom-0 left-0 right-0 bg-white shadow-md py-4 border-t border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm font-medium text-gray-700">المواد المسجلة:</span>
+                        <span class="text-sm font-bold text-primary">2</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm font-medium text-gray-700">الساعات المعتمدة:</span>
+                        <span class="text-sm font-bold text-primary">6 / 18</span>
+                    </div>
+                </div>
+                <button class="px-6 py-3 text-base font-medium text-white bg-primary hover:bg-primary/90 rounded-button whitespace-nowrap shadow-sm">عرض الجدول الدراسي</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.querySelector('input[type="search"]');
+            const courseCards = document.querySelectorAll('.grid > div');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.trim().toLowerCase();
+                
+                courseCards.forEach(card => {
+                    const courseName = card.querySelector('h3').textContent.toLowerCase();
+                    const courseCode = card.querySelector('p').textContent.toLowerCase();
+                    
+                    if (courseName.includes(searchTerm) || courseCode.includes(searchTerm)) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+            
+            const registerButtons = document.querySelectorAll('button:not([class*="cursor-not-allowed"])');
+            registerButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const courseCard = this.closest('.bg-white');
+                    const courseName = courseCard.querySelector('h3').textContent;
+                    
+                    if (this.textContent === 'تسجيل') {
+                        this.textContent = 'إلغاء التسجيل';
+                        this.classList.remove('bg-primary', 'hover:bg-primary/90', 'text-white');
+                        this.classList.add('bg-red-50', 'text-red-600', 'hover:bg-red-100', 'border', 'border-red-200');
+                        
+                        // Update registered courses count
+                        const registeredCoursesCount = document.querySelector('.text-sm.font-bold.text-primary');
+                        registeredCoursesCount.textContent = parseInt(registeredCoursesCount.textContent) + 1;
+                        
+                        // Update credit hours
+                        const creditHours = document.querySelectorAll('.text-sm.font-bold.text-primary')[1];
+                        const currentHours = parseInt(creditHours.textContent.split('/')[0]);
+                        creditHours.textContent = `${currentHours + 3} / 18`;
+                        
+                        // Show success notification
+                        showNotification(`تم تسجيل مادة ${courseName} بنجاح`, 'success');
+                    } else {
+                        this.textContent = 'تسجيل';
+                        this.classList.remove('bg-red-50', 'text-red-600', 'hover:bg-red-100', 'border', 'border-red-200');
+                        this.classList.add('bg-primary', 'hover:bg-primary/90', 'text-white');
+                        
+                        // Update registered courses count
+                        const registeredCoursesCount = document.querySelector('.text-sm.font-bold.text-primary');
+                        registeredCoursesCount.textContent = parseInt(registeredCoursesCount.textContent) - 1;
+                        
+                        // Update credit hours
+                        const creditHours = document.querySelectorAll('.text-sm.font-bold.text-primary')[1];
+                        const currentHours = parseInt(creditHours.textContent.split('/')[0]);
+                        creditHours.textContent = `${currentHours - 3} / 18`;
+                        
+                        // Show error notification
+                        showNotification(`تم إلغاء تسجيل مادة ${courseName}`, 'error');
+                    }
+                });
+            });
+            
+            function showNotification(message, type) {
+                const notification = document.createElement('div');
+                notification.className = `fixed top-4 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-lg shadow-lg text-white ${type === 'success' ? 'bg-green-600' : 'bg-red-600'} flex items-center gap-2 z-50`;
+                
+                const icon = document.createElement('i');
+                icon.className = type === 'success' ? 'ri-check-line' : 'ri-close-line';
+                
+                const text = document.createElement('span');
+                text.textContent = message;
+                
+                notification.appendChild(icon);
+                notification.appendChild(text);
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.classList.add('opacity-0', 'transition-opacity', 'duration-300');
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>

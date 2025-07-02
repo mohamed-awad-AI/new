@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي - الشات بوت الجامعي</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#10b981'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f9fafb;
+        }
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #ffffff;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #3b82f6;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <h1 class="text-2xl font-['Pacifico'] text-primary">logo</h1>
+                <div class="h-6 w-px bg-gray-200"></div>
+                <h2 class="text-xl font-bold text-gray-800">الملف الشخصي</h2>
+            </div>
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <span class="text-gray-700 font-medium">أحمد الزهراني</span>
+                <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center">
+                    <i class="ri-user-line ri-lg"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Sidebar -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded shadow-sm p-6">
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="w-24 h-24 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4">
+                            <i class="ri-user-line ri-3x"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">أحمد الزهراني</h3>
+                        <p class="text-gray-500 text-sm">كلية علوم الحاسب والمعلومات</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center p-3 rounded-lg bg-primary/5 text-primary">
+                            <div class="w-8 h-8 flex items-center justify-center">
+                                <i class="ri-user-settings-line"></i>
+                            </div>
+                            <span class="mr-3 font-medium">المعلومات الشخصية</span>
+                        </div>
+                        
+                        <div class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                            <div class="w-8 h-8 flex items-center justify-center text-gray-500">
+                                <i class="ri-chat-settings-line"></i>
+                            </div>
+                            <span class="mr-3 text-gray-700">تفضيلات الشات بوت</span>
+                        </div>
+                        
+                        <div class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                            <div class="w-8 h-8 flex items-center justify-center text-gray-500">
+                                <i class="ri-history-line"></i>
+                            </div>
+                            <span class="mr-3 text-gray-700">سجل التفاعلات</span>
+                        </div>
+                        
+                        <div class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                            <div class="w-8 h-8 flex items-center justify-center text-gray-500">
+                                <i class="ri-lock-line"></i>
+                            </div>
+                            <span class="mr-3 text-gray-700">إعدادات الأمان</span>
+                        </div>
+                        
+                        <div class="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+                            <div class="w-8 h-8 flex items-center justify-center text-gray-500">
+                                <i class="ri-logout-box-line"></i>
+                            </div>
+                            <span class="mr-3 text-gray-700">تسجيل الخروج</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Personal Information -->
+                <div class="bg-white rounded shadow-sm p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-bold text-gray-800">المعلومات الأساسية</h3>
+                        <button class="flex items-center text-primary hover:text-primary/80 transition-colors">
+                            <i class="ri-edit-line ml-1"></i>
+                            <span>تعديل</span>
+                        </button>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي - الشات بوت الجامعي</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#10b981'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Tajawal', sans-serif;
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl font-['Pacifico'] text-primary">logo</span>
+                <span class="text-lg font-medium text-gray-800">الشات بوت الجامعي</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full">
+                    <i class="ri-notification-3-line text-primary"></i>
+                </div>
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 flex items-center justify-center bg-primary rounded-full text-white">
+                        <i class="ri-user-line"></i>
+                    </div>
+                    <span class="font-medium">أحمد الزهراني</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row gap-6">
+            <div class="w-full md:w-1/4">
+                <div class="bg-white rounded shadow-sm p-6 mb-6">
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="w-24 h-24 flex items-center justify-center bg-primary rounded-full text-white text-4xl mb-4">
+                            <i class="ri-user-line"></i>
+                        </div>
+                        <h2 class="text-xl font-bold">أحمد الزهراني</h2>
+                        <p class="text-gray-500">طالب هندسة حاسب</p>
+                    </div>
+                    <div class="space-y-2">
+                        <button class="w-full py-2 px-4 bg-primary text-white rounded-button flex items-center gap-2 justify-center">
+                            <i class="ri-edit-line"></i>
+                            <span>تعديل الصورة</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded shadow-sm p-6">
+                    <h3 class="text-lg font-bold mb-4">روابط سريعة</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-primary">
+                                <div class="w-8 h-8 flex items-center justify-center">
+                                    <i class="ri-history-line"></i>
+                                </div>
+                                <span>سجل المحادثات</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-primary">
+                                <div class="w-8 h-8 flex items-center justify-center">
+                                    <i class="ri-bookmark-line"></i>
+                                </div>
+                                <span>المواضيع المحفوظة</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-primary">
+                                <div class="w-8 h-8 flex items-center justify-center">
+                                    <i class="ri-settings-3-line"></i>
+                                </div>
+                                <span>إعدادات الحساب</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-primary">
+                                <div class="w-8 h-8 flex items-center justify-center">
+                                    <i class="ri-question-line"></i>
+                                </div>
+                                <span>مركز المساعدة</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="w-full md:w-3/4">
+                <div class="bg-white rounded shadow-sm p-6 mb-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-bold">المعلومات الأساسية</h2>
+                        <button id="editBasicInfoBtn" class="py-2 px-4 bg-gray-100 text-gray-700 rounded-button flex items-center gap-2 whitespace-nowrap">
+                            <i class="ri-edit-line"></i>
+                            <span>تعديل</span>
+                        </button>
+                    </div>
+
+                    <div id="basicInfoView" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <p class="text-gray-500 mb-1">الاسم الكامل</p>
+                                <p class="font-medium">أحمد محمد الزهراني</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 mb-1">البريد الإلكتروني الجامعي</p>
+                                <p class="font-medium">ahmed.z@university.edu.sa</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 mb-1">الرقم الجامعي</p>
+                                <p class="font-medium">442010358</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 mb-1">التخصص</p>
+                                <p class="font-medium">هندسة حاسب</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 mb-1">المستوى الدراسي</p>
+                                <p class="font-medium">السنة الثالثة</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 mb-1">رقم الهاتف</p>
+                                <p class="font-medium">+966 55 123 4567</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="basicInfoEdit" class="hidden space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="fullName">الاسم الكامل</label>
+                                <input type="text" id="fullName" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50" value="أحمد محمد الزهراني">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="email">البريد الإلكتروني الجامعي</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50" value="ahmed.z@university.edu.sa" disabled>
+                                <p class="text-xs text-gray-500 mt-1">لا يمكن تغيير البريد الإلكتروني الجامعي</p>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="studentId">الرقم الجامعي</label>
+                                <input type="text" id="studentId" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50" value="442010358" disabled>
+                                <p class="text-xs text-gray-500 mt-1">لا يمكن تغيير الرقم الجامعي</p>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="major">التخصص</label>
+                                <select id="major" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 pr-8 appearance-none bg-white">
+                                    <option value="cs">علوم الحاسب</option>
+                                    <option value="ce" selected>هندسة حاسب</option>
+                                    <option value="is">نظم معلومات</option>
+                                    <option value="it">تقنية المعلومات</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="level">المستوى الدراسي</label>
+                                <select id="level" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 pr-8 appearance-none bg-white">
+                                    <option value="1">السنة الأولى</option>
+                                    <option value="2">السنة الثانية</option>
+                                    <option value="3" selected>السنة الثالثة</option>
+                                    <option value="4">السنة الرابعة</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="phone">رقم الهاتف</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50" value="+966 55 123 4567">
+                            </div>
+                        </div>
+                        <div class="flex justify-end gap-3 mt-4">
+                            <button id="cancelBasicInfoBtn" class="py-2 px-4 bg-gray-100 text-gray-700 rounded-button whitespace-nowrap">إلغاء</button>
+                            <button id="saveBasicInfoBtn" class="py-2 px-4 bg-primary text-white rounded-button whitespace-nowrap">حفظ التغييرات</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded shadow-sm p-6 mb-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-bold">تفضيلات الشات بوت</h2>
+                        <button id="editPreferencesBtn" class="py-2 px-4 bg-gray-100 text-gray-700 rounded-button flex items-center gap-2 whitespace-nowrap">
+                            <i class="ri-edit-line"></i>
+                            <span>تعديل</span>
+                        </button>
+                    </div>
+
+                    <div id="preferencesView" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <p class="text-gray-500 mb-1">لغة التواصل المفضلة</p>
+                                <p class="font-medium">العربية</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 mb-1">نمط الإشعارات</p>
+                                <p class="font-medium">فوري</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 mb-1">التنبيهات الصوتية</p>
+                                <p class="font-medium">مفعلة</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 mb-1">نوع الردود</p>
+                                <p class="font-medium">مفصلة</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="preferencesEdit" class="hidden space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-700 mb-2">لغة التواصل المفضلة</label>
+                                <div class="flex p-1 bg-gray-100 rounded-full w-fit">
+                                    <button class="px-4 py-2 bg-white rounded-full shadow-sm">العربية</button>
+                                    <button class="px-4 py-2 text-gray-600">الإنجليزية</button>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">نمط الإشعارات</label>
+                                <select class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 pr-8 appearance-none bg-white">
+                                    <option selected>فوري</option>
+                                    <option>يومي</option>
+                                    <option>أسبوعي</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">التنبيهات الصوتية</label>
+                                <div class="relative inline-block w-12 h-6 mr-2">
+                                    <input type="checkbox" id="toggle-sound" class="sr-only peer" checked>
+                                    <span class="absolute inset-0 rounded-full bg-gray-300 transition peer-checked:bg-primary"></span>
+                                    <span class="absolute inset-y-0 left-0 w-6 h-6 bg-white rounded-full transition-all transform peer-checked:translate-x-6 shadow"></span>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">نوع الردود</label>
+                                <div class="flex p-1 bg-gray-100 rounded-full w-fit">
+                                    <button class="px-4 py-2 text-gray-600">مختصرة</button>
+                                    <button class="px-4 py-2 bg-white rounded-full shadow-sm">مفصلة</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-end gap-3 mt-4">
+                            <button id="cancelPreferencesBtn" class="py-2 px-4 bg-gray-100 text-gray-700 rounded-button whitespace-nowrap">إلغاء</button>
+                            <button id="savePreferencesBtn" class="py-2 px-4 bg-primary text-white rounded-button whitespace-nowrap">حفظ التغييرات</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded shadow-sm p-6 mb-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-bold">سجل التفاعلات</h2>
+                        <a href="#" class="text-primary hover:underline">عرض الكل</a>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="border-b pb-4">
+                            <div class="flex justify-between mb-2">
+                                <h3 class="font-medium">استفسار عن مواعيد الاختبارات النهائية</h3>
+                                <span class="text-sm text-gray-500">اليوم، 10:30 ص</span>
+                            </div>
+                            <p class="text-gray-600 text-sm">آخر رد: تبدأ الاختبارات النهائية يوم الأحد الموافق 15 يوليو 2025 وتستمر لمدة أسبوعين...</p>
+                        </div>
+                        <div class="border-b pb-4">
+                            <div class="flex justify-between mb-2">
+                                <h3 class="font-medium">طلب معلومات عن التدريب الصيفي</h3>
+                                <span class="text-sm text-gray-500">أمس، 2:45 م</span>
+                            </div>
+                            <p class="text-gray-600 text-sm">آخر رد: يمكنك التقديم على برامج التدريب الصيفي من خلال بوابة الطالب قبل نهاية شهر مايو...</p>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <h3 class="font-medium">استفسار عن مقرر هندسة البرمجيات</h3>
+                                <span class="text-sm text-gray-500">28 يونيو، 9:15 م</span>
+                            </div>
+                            <p class="text-gray-600 text-sm">آخر رد: المتطلب السابق لمقرر هندسة البرمجيات هو إكمال مقرر تحليل وتصميم النظم بنجاح...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded shadow-sm p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-bold">إعدادات الأمان</h2>
+                        <button id="editSecurityBtn" class="py-2 px-4 bg-gray-100 text-gray-700 rounded-button flex items-center gap-2 whitespace-nowrap">
+                            <i class="ri-edit-line"></i>
+                            <span>تعديل</span>
+                        </button>
+                    </div>
+
+                    <div id="securityView" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <p class="text-gray-500 mb-1">كلمة المرور</p>
+                                <p class="font-medium">••••••••</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 mb-1">آخر تغيير لكلمة المرور</p>
+                                <p class="font-medium">قبل 3 أشهر</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 mb-1">حفظ المحادثات</p>
+                                <p class="font-medium">مفعل</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500 mb-1">مدة حفظ المحادثات</p>
+                                <p class="font-medium">6 أشهر</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="securityEdit" class="hidden space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="currentPassword">كلمة المرور الحالية</label>
+                                <input type="password" id="currentPassword" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="newPassword">كلمة المرور الجديدة</label>
+                                <input type="password" id="newPassword" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="confirmPassword">تأكيد كلمة المرور الجديدة</label>
+                                <input type="password" id="confirmPassword" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">حفظ المحادثات</label>
+                                <div class="relative inline-block w-12 h-6 mr-2">
+                                    <input type="checkbox" id="toggle-save" class="sr-only peer" checked>
+                                    <span class="absolute inset-0 rounded-full bg-gray-300 transition peer-checked:bg-primary"></span>
+                                    <span class="absolute inset-y-0 left-0 w-6 h-6 bg-white rounded-full transition-all transform peer-checked:translate-x-6 shadow"></span>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">مدة حفظ المحادثات</label>
+                                <select class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 pr-8 appearance-none bg-white">
+                                    <option>شهر واحد</option>
+                                    <option>3 أشهر</option>
+                                    <option selected>6 أشهر</option>
+                                    <option>سنة كاملة</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex justify-end gap-3 mt-4">
+                            <button id="cancelSecurityBtn" class="py-2 px-4 bg-gray-100 text-gray-700 rounded-button whitespace-nowrap">إلغاء</button>
+                            <button id="saveSecurityBtn" class="py-2 px-4 bg-primary text-white rounded-button whitespace-nowrap">حفظ التغييرات</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">الشات بوت الجامعي</h3>
+                    <p class="text-gray-400">مساعدك الذكي للإجابة على جميع استفساراتك الجامعية بشكل فوري ودقيق.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">روابط سريعة</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">الصفحة الرئيسية</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">الملف الشخصي</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">المحادثات السابقة</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">الدعم</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">مركز المساعدة</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">الأسئلة المتكررة</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">اتصل بنا</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">سياسة الخصوصية</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">تواصل معنا</h3>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-twitter-x-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-linkedin-line"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full hover:bg-primary transition-colors">
+                            <i class="ri-youtube-line"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 mt-4">البريد الإلكتروني: support@unichatbot.edu.sa</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                <p>© 2025 الشات بوت الجامعي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script id="profileEditFunctions">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Basic Info Section
+            const editBasicInfoBtn = document.getElementById('editBasicInfoBtn');
+            const cancelBasicInfoBtn = document.getElementById('cancelBasicInfoBtn');
+            const saveBasicInfoBtn = document.getElementById('saveBasicInfoBtn');
+            const basicInfoView = document.getElementById('basicInfoView');
+            const basicInfoEdit = document.getElementById('basicInfoEdit');
+
+            editBasicInfoBtn.addEventListener('click', function() {
+                basicInfoView.classList.add('hidden');
+                basicInfoEdit.classList.remove('hidden');
+            });
+            cancelBasicInfoBtn.addEventListener('click', function() {
+                basicInfoView.classList.remove('hidden');
+                basicInfoEdit.classList.add('hidden');
+            });
+
+            saveBasicInfoBtn.addEventListener('click', function() {
+                // Here you would normally save the data to the server
+                basicInfoView.classList.remove('hidden');
+                basicInfoEdit.classList.add('hidden');
+                
+                // Show success message
+                showNotification('تم حفظ المعلومات الأساسية بنجاح');
+            });
+        });
+    </script>
+
+    <script id="preferencesEditFunctions">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Preferences Section
+            const editPreferencesBtn = document.getElementById('editPreferencesBtn');
+            const cancelPreferencesBtn = document.getElementById('cancelPreferencesBtn');
+            const savePreferencesBtn = document.getElementById('savePreferencesBtn');
+            const preferencesView = document.getElementById('preferencesView');
+            const preferencesEdit = document.getElementById('preferencesEdit');
+
+            editPreferencesBtn.addEventListener('click', function() {
+                preferencesView.classList.add('hidden');
+                preferencesEdit.classList.remove('hidden');
+            });
+            cancelPreferencesBtn.addEventListener('click', function() {
+                preferencesView.classList.remove('hidden');
+                preferencesEdit.classList.add('hidden');
+            });
+
+            savePreferencesBtn.addEventListener('click', function() {
+                // Here you would normally save the data to the server
+                preferencesView.classList.remove('hidden');
+                preferencesEdit.classList.add('hidden');
+                
+                // Show success message
+                showNotification('تم حفظ تفضيلات الشات بوت بنجاح');
+            });
+        });
+    </script>
+
+    <script id="securityEditFunctions">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Security Section
+            const editSecurityBtn = document.getElementById('editSecurityBtn');
+            const cancelSecurityBtn = document.getElementById('cancelSecurityBtn');
+            const saveSecurityBtn = document.getElementById('saveSecurityBtn');
+            const securityView = document.getElementById('securityView');
+            const securityEdit = document.getElementById('securityEdit');
+
+            editSecurityBtn.addEventListener('click', function() {
+                securityView.classList.add('hidden');
+                securityEdit.classList.remove('hidden');
+            });
+
+            cancelSecurityBtn.addEventListener('click', function() {
+                securityView.classList.remove('hidden');
+                securityEdit.classList.add('hidden');
+            });
+
+            saveSecurityBtn.addEventListener('click', function() {
+                // Here you would normally save the data to the server
+                securityView.classList.remove('hidden');
+                securityEdit.classList.add('hidden');
+                
+                // Show success message
+                showNotification('تم حفظ إعدادات الأمان بنجاح');
+            });
+        });
+    </script>
+
+    <script id="notificationFunctions">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create notification container if it doesn't exist
+            if (!document.getElementById('notification-container')) {
+                const notificationContainer = document.createElement('div');
+                notificationContainer.id = 'notification-container';
+                notificationContainer.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 z-50 flex flex-col items-center gap-2';
+                document.body.appendChild(notificationContainer);
+            }
+        });
+
+        function showNotification(message) {
+            const container = document.getElementById('notification-container');
+            
+            const notification = document.createElement('div');
+            notification.className = 'bg-green-500 text-white px-6 py-3 rounded shadow-lg flex items-center gap-2 transition-all duration-300 transform translate-y-0 opacity-100';
+            
+            const icon = document.createElement('i');
+            icon.className = 'ri-check-line';
+            
+            const text = document.createElement('span');
+            text.textContent = message;
+            
+            notification.appendChild(icon);
+            notification.appendChild(text);
+            container.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('opacity-0', 'translate-y-[-20px]');
+                setTimeout(() => {
+                    container.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الجدول الدراسي</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#4f46e5',secondary:'#a855f7'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f9fafb;
+        }
+        .schedule-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        @media print {
+            .no-print {
+                display: none;
+            }
+            .print-container {
+                padding: 0;
+                margin: 0;
+            }
+            .schedule-card {
+                break-inside: avoid;
+                margin-bottom: 10px;
+                box-shadow: none !important;
+                border: 1px solid #e5e7eb;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="max-w-5xl mx-auto px-4 py-8">
+        <header class="mb-8 text-center">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">الجدول الدراسي</h1>
+            <p class="text-gray-600">الفصل الدراسي الثاني - العام الجامعي 2025</p>
+        </header>
+
+        <div class="mb-6 bg-white rounded-lg shadow-sm p-4 border border-gray-100">
+            <div class="flex items-center gap-3 text-primary">
+                <div class="w-8 h-8 flex items-center justify-center">
+                    <i class="ri-information-line ri-lg"></i>
+                </div>
+                <div>
+                    <h2 class="font-medium">معلومات الطالب</h2>
+                    <p class="text-gray-600 text-sm">محمد أحمد العبدالله - كلية علوم الحاسب - المستوى الرابع</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 print-container">
+            <!-- الأحد -->
+            <div class="schedule-card bg-white rounded-lg shadow-sm p-5 border-r-4 border-primary transition-all duration-300">
+                <div class="flex items-center justify-between mb-3">
+                    <h2 class="text-xl font-bold text-gray-800">الأحد</h2>
+                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">3 محاضرات</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="border-r-2 border-primary/30 pr-3">
+                        <div class="flex items-center gap-2 text-gray-700">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <span class="text-sm">8:00 ص - 10:00 ص</span>
+                        </div>
+                        <h3 class="font-medium text-gray-900 mt-1">برمجة متقدمة</h3>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm mt-1">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-user-line"></i>
+                            </div>
+                            <span>د. عبدالرحمن الشمري</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>قاعة 305 - مبنى كلية الحاسب</span>
+                        </div>
+                    </div>
+
+                    <div class="border-r-2 border-secondary/30 pr-3">
+                        <div class="flex items-center gap-2 text-gray-700">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <span class="text-sm">10:30 ص - 12:30 م</span>
+                        </div>
+                        <h3 class="font-medium text-gray-900 mt-1">هندسة البرمجيات</h3>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm mt-1">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-user-line"></i>
+                            </div>
+                            <span>د. فيصل العتيبي</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>قاعة 201 - مبنى كلية الحاسب</span>
+                        </div>
+                    </div>
+
+                    <div class="border-r-2 border-primary/30 pr-3">
+                        <div class="flex items-center gap-2 text-gray-700">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <span class="text-sm">1:00 م - 3:00 م</span>
+                        </div>
+                        <h3 class="font-medium text-gray-900 mt-1">شبكات الحاسب</h3>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm mt-1">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-user-line"></i>
+                            </div>
+                            <span>د. سعود الدوسري</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>معمل 102 - مبنى المعامل</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الاثنين -->
+            <div class="schedule-card bg-white rounded-lg shadow-sm p-5 border-r-4 border-secondary transition-all duration-300">
+                <div class="flex items-center justify-between mb-3">
+                    <h2 class="text-xl font-bold text-gray-800">الاثنين</h2>
+                    <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">2 محاضرات</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="border-r-2 border-secondary/30 pr-3">
+                        <div class="flex items-center gap-2 text-gray-700">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <span class="text-sm">9:00 ص - 11:00 ص</span>
+                        </div>
+                        <h3 class="font-medium text-gray-900 mt-1">قواعد البيانات المتقدمة</h3>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm mt-1">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-user-line"></i>
+                            </div>
+                            <span>د. نورة القحطاني</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>قاعة 405 - مبنى كلية الحاسب</span>
+                        </div>
+                    </div>
+
+                    <div class="border-r-2 border-primary/30 pr-3">
+                        <div class="flex items-center gap-2 text-gray-700">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <span class="text-sm">12:00 م - 2:00 م</span>
+                        </div>
+                        <h3 class="font-medium text-gray-900 mt-1">الذكاء الاصطناعي</h3>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm mt-1">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-user-line"></i>
+                            </div>
+                            <span>د. خالد المنصور</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>معمل 205 - مبنى المعامل</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الثلاثاء -->
+            <div class="schedule-card bg-white rounded-lg shadow-sm p-5 border-r-4 border-primary transition-all duration-300">
+                <div class="flex items-center justify-between mb-3">
+                    <h2 class="text-xl font-bold text-gray-800">الثلاثاء</h2>
+                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">2 محاضرات</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="border-r-2 border-primary/30 pr-3">
+                        <div class="flex items-center gap-2 text-gray-700">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <span class="text-sm">8:00 ص - 10:00 ص</span>
+                        </div>
+                        <h3 class="font-medium text-gray-900 mt-1">تطوير تطبيقات الويب</h3>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm mt-1">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-user-line"></i>
+                            </div>
+                            <span>د. عبدالله الغامدي</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>معمل 301 - مبنى المعامل</span>
+                        </div>
+                    </div>
+
+                    <div class="border-r-2 border-secondary/30 pr-3">
+                        <div class="flex items-center gap-2 text-gray-700">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <span class="text-sm">11:00 ص - 1:00 م</span>
+                        </div>
+                        <h3 class="font-medium text-gray-900 mt-1">أمن المعلومات</h3>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm mt-1">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-user-line"></i>
+                            </div>
+                            <span>د. منصور الحربي</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>قاعة 105 - مبنى كلية الحاسب</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الأربعاء -->
+            <div class="schedule-card bg-white rounded-lg shadow-sm p-5 border-r-4 border-secondary transition-all duration-300">
+                <div class="flex items-center justify-between mb-3">
+                    <h2 class="text-xl font-bold text-gray-800">الأربعاء</h2>
+                    <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">3 محاضرات</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="border-r-2 border-secondary/30 pr-3">
+                        <div class="flex items-center gap-2 text-gray-700">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <span class="text-sm">9:00 ص - 11:00 ص</span>
+                        </div>
+                        <h3 class="font-medium text-gray-900 mt-1">تحليل وتصميم النظم</h3>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm mt-1">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-user-line"></i>
+                            </div>
+                            <span>د. سارة المطيري</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>قاعة 203 - مبنى كلية الحاسب</span>
+                        </div>
+                    </div>
+
+                    <div class="border-r-2 border-primary/30 pr-3">
+                        <div class="flex items-center gap-2 text-gray-700">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <span class="text-sm">12:00 م - 2:00 م</span>
+                        </div>
+                        <h3 class="font-medium text-gray-900 mt-1">تطوير تطبيقات الجوال</h3>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm mt-1">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-user-line"></i>
+                            </div>
+                            <span>د. أحمد الزهراني</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>معمل 204 - مبنى المعامل</span>
+                        </div>
+                    </div>
+
+                    <div class="border-r-2 border-secondary/30 pr-3">
+                        <div class="flex items-center gap-2 text-gray-700">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <span class="text-sm">2:30 م - 4:30 م</span>
+                        </div>
+                        <h3 class="font-medium text-gray-900 mt-1">مشروع التخرج</h3>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm mt-1">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-user-line"></i>
+                            </div>
+                            <span>د. عبدالعزيز السلمي</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>قاعة المناقشات - الدور الثالث</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الخميس -->
+            <div class="schedule-card bg-white rounded-lg shadow-sm p-5 border-r-4 border-primary transition-all duration-300">
+                <div class="flex items-center justify-between mb-3">
+                    <h2 class="text-xl font-bold text-gray-800">الخميس</h2>
+                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">1 محاضرة</span>
+                </div>
+                <div class="space-y-4">
+                    <div class="border-r-2 border-primary/30 pr-3">
+                        <div class="flex items-center gap-2 text-gray-700">
+                            <div class="w-5 h-5 flex items-center justify-center">
+                                <i class="ri-time-line"></i>
+                            </div>
+                            <span class="text-sm">10:00 ص - 12:00 م</span>
+                        </div>
+                        <h3 class="font-medium text-gray-900 mt-1">الحوسبة السحابية</h3>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm mt-1">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-user-line"></i>
+                            </div>
+                            <span>د. محمد العنزي</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-600 text-sm">
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span>قاعة 302 - مبنى كلية الحاسب</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-4 justify-center no-print">
+            <button onclick="window.print()" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-button flex items-center gap-2 transition-all duration-300 shadow-sm !whitespace-nowrap">
+                <div class="w-5 h-5 flex items-center justify-center">
+                    <i class="ri-printer-line"></i>
+                </div>
+                <span>طباعة الجدول</span>
+            </button>
+            
+            <button onclick="downloadPDF()" class="bg-white hover:bg-gray-50 text-primary border border-primary px-6 py-3 rounded-button flex items-center gap-2 transition-all duration-300 shadow-sm !whitespace-nowrap">
+                <div class="w-5 h-5 flex items-center justify-center">
+                    <i class="ri-download-line"></i>
+                </div>
+                <span>تحميل كملف PDF</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function downloadPDF() {
+            alert('جاري تحميل الجدول كملف PDF...');
+            // في الواقع هنا سيتم استدعاء API لتحويل الصفحة إلى PDF وتحميلها
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.schedule-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.classList.add('shadow-md');
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.classList.remove('shadow-md');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
